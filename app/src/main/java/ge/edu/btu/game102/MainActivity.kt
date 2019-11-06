@@ -1,5 +1,6 @@
 package ge.edu.btu.game102
 
+import android.content.Context
 import android.graphics.Color.*
 import android.hardware.camera2.params.BlackLevelPattern
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +11,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private var resetCount = 0
     private var isFirstPlayer = true
     private lateinit var mp: MediaPlayer
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,30 +94,48 @@ class MainActivity : AppCompatActivity() {
         if (button00.text.isNotEmpty() && button00.text == button01.text && button00.text == button02.text){
             winnerTextView.text = "The Winner is ${button00.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button10.text.isNotEmpty() && button10.text == button11.text && button10.text == button12.text){
             winnerTextView.text = "The Winner is ${button10.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button20.text.isNotEmpty() && button20.text == button21.text && button20.text == button22.text){
             winnerTextView.text = "The Winner is ${button20.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button00.text.isNotEmpty() && button00.text == button10.text && button00.text == button20.text){
             winnerTextView.text = "The Winner is ${button00.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button01.text.isNotEmpty() && button01.text == button11.text && button01.text == button21.text){
             winnerTextView.text = "The Winner is ${button01.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button02.text.isNotEmpty() && button02.text == button12.text && button02.text == button22.text){
             winnerTextView.text = "The Winner is ${button02.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button00.text.isNotEmpty() && button00.text == button11.text && button00.text == button22.text){
             winnerTextView.text = "The Winner is ${button00.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button02.text.isNotEmpty() && button02.text == button11.text && button02.text == button20.text){
             winnerTextView.text = "The Winner is ${button02.text}"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }else if (button00.text.isNotEmpty() && button01.text.isNotEmpty() && button02.text.isNotEmpty() && button10.text.isNotEmpty() && button11.text.isNotEmpty() && button12.text.isNotEmpty() && button20.text.isNotEmpty() && button21.text.isNotEmpty() && button22.text.isNotEmpty()){
             winnerTextView.text = "DRAW"
             deleteClick()
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
         }
 
     }
@@ -152,9 +176,12 @@ class MainActivity : AppCompatActivity() {
 
         private fun restartTheGame(restartButton: Button) {
             restartButton.setOnClickListener {
+                val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+                vibratorService.vibrate(100)
                 resetCount += 1
                 roundCount.text = "Round " + resetCount
                 winnerTextView.text = ""
+                isFirstPlayer = true
                 button00.text = ""
                 button00.isClickable = true
                 button01.text = ""
@@ -202,6 +229,8 @@ class MainActivity : AppCompatActivity() {
         }
         super.onPause()
     }
+
+
 
 
 
