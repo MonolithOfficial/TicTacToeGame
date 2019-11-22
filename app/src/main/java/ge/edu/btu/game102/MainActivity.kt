@@ -17,6 +17,7 @@ import android.os.Vibrator
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import kotlin.math.round
 
 
 class MainActivity : AppCompatActivity() {
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         button22.setOnClickListener {
             checkPlayer(button22)
             winnerColor()
+
         }
     }
 
@@ -200,6 +202,9 @@ class MainActivity : AppCompatActivity() {
                 button21.isClickable = true
                 button22.text = ""
                 button22.isClickable = true
+                if (button00.text.isEmpty() && button01.text.isEmpty() && button02.text.isEmpty() && button10.text.isEmpty() && button11.text.isEmpty() && button12.text.isEmpty() && button20.text.isEmpty() && button21.text.isEmpty() && button22.text.isEmpty()){
+                    roundCount.text = roundCount.text
+                }
             }
         }
 

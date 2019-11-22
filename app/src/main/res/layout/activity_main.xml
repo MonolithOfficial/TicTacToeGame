@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:textColor="#fff"
         android:text="Round 0"
-        android:padding="10dp"
+        android:padding="10sp"
         android:layout_marginTop="180dp"
         android:textSize="20sp"
         android:textStyle="italic"/>
